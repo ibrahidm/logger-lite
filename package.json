@@ -1,5 +1,5 @@
 {
-  "name": "logger-lite",
+  "name": "your-logger-lite",
   "version": "1.0.0",
   "description": "A simple logging package with built-in traceability for managing requests, handlers, and controllers in ExpressJS applications",
   "main": "./lib/cjs/index.js",
