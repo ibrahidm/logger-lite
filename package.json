@@ -4,7 +4,6 @@
   "description": "A simple logging package with built-in traceability for managing requests, handlers, and controllers in ExpressJS applications",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "private": true,
   "files": [
     "lib/"
   ],
