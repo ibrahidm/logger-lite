@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
 import { Logger } from "./logger";
 
-type RequestWithContext = Request & {context: object}
 
-export const loggerMiddleware = (req: RequestWithContext, res: Response, next: NextFunction) => {
+export const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const trace = req.headers['x-trace-id']
     const level = parseInt(process.env.LOG_LEVEL as string, 10)
     const logger = new Logger(level, trace as string)

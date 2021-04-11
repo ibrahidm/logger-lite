@@ -4,13 +4,16 @@
   "description": "A simple logging package with built-in traceability for managing requests, handlers, and controllers in ExpressJS applications",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
+  "private": true,
   "files": [
     "lib/"
   ],
   "author": "Dr. Daniel M. Ibrahim, PharmD",
   "license": "MIT",
   "scripts": {
-    "build": "npx tsc -p tsconfig.json && tsc -p tsconfig-cjs.json"
+    "build": "npx tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "prepublishOnly": "yarn test",
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
