@@ -4,7 +4,7 @@ import { Logger } from "./logger";
 
 export const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const trace = req.headers['x-trace-id']
-    const level = parseInt(process.env.LOG_LEVEL as string, 10)
+    const level = parseInt(process.env.LOG_LEVEL as string, 10) || 4
     const logger = new Logger(level, trace as string)
     const context = {
         trace,
