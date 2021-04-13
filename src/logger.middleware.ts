@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
+import { Context } from './context';
 import { Logger } from "./logger";
 
 
@@ -6,10 +7,7 @@ export const loggerMiddleware = (req: Request, res: Response, next: NextFunction
     const trace = req.headers['x-trace-id']
     const level = parseInt(process.env.LOG_LEVEL as string, 10) || 4
     const logger = new Logger(level, trace as string)
-    const context = {
-        trace,
-        logger,
-    }
+    const context = new Context(logger, trace as string)
 
     req.context = context;
 

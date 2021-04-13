@@ -17,17 +17,17 @@ export class Logger {
         this.trace = trace
     }
 
-    start(self: string, status: number): void {
+    start(self: string, status?: number): void {
         this.info(self, status)
         this.time(`${self} = ${this.trace}`)
     }
 
-    end(self: string, status: number): void {
+    end(self: string, status?: number): void {
         this.info(`${self} invoked successfully`, status)
         this.timeEnd(`${self} - ${this.trace}`)
     }
 
-    debug(message: string, status: number): void {
+    debug(message: string, status?: number): void {
         if (this.level < this.LOG_LEVELS.DEBUG) return
         console.debug({
             message,
@@ -38,7 +38,7 @@ export class Logger {
         })
     }
 
-    info(message: string, status: number): void {
+    info(message: string, status?: number): void {
         if (this. level < this.LOG_LEVELS.INFO) return
         console.info({
             message,
@@ -49,7 +49,7 @@ export class Logger {
         })
     }
 
-    warn(message: string, status: number): void {
+    warn(message: string, status?: number): void {
         if (this. level < this.LOG_LEVELS.WARN) return
         console.warn({
             message,
@@ -60,7 +60,7 @@ export class Logger {
         })
     }
 
-    error(error: Error, status: number, location: string): void {
+    error(error: Error, location: string, status?: number): void {
         if (this. level < this.LOG_LEVELS.ERROR) return
         console.error({
             location,

@@ -1,12 +1,6 @@
-
-
-
-> Written with [StackEdit](https://stackedit.io/).# Introduction
 ## Introduction
 
 **Your-Logger-Lite** is a simple tool that provides your ExpressJS applications with basic logging capabilities and traceability by leveraging middleware.
-
-  
 
 **Your-Logger-Lite** is built using typescript and ships with type support. It is configured to allow for easy implementation both with commonJS and ES6.
 
@@ -16,16 +10,12 @@
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Getting Started:](#getting-started)
-  - [Environment Variables](#environment-variables)
-  - [Examples](#examples)
-  - [ES6](#es6)
-  - [CommonJS](#commonjs)
-
-  
+	- [Environment Variables](#environment-variables)
+	- [Examples](#examples)
+	- [ES6](#es6)
+	- [CommonJS](#commonjs)
 
 ## Installation
-
-  
 
 Uisng **yarn**:
 
@@ -33,7 +23,6 @@ Uisng **yarn**:
 $ yarn add your-logger-lite 
 ```
 
-  
 
 Using **npm**:
 
@@ -41,14 +30,12 @@ Using **npm**:
 $ npm install your-logger-lite 
 ```
 
-  
-  
 
 ## Getting Started:
 
   ### Environment Variables
 
-**your-logger-lite** depends on an environment variable named `LOG_LEVEL`. The concept of log-level will be discussed in further detail a little later. In brief, log-level allows some basic, global, environment-bound control over whether or not certain actions are logged. **your-logger-lite**'s `loggerMiddleware` accesses the `LOG_LEVEL` by calling `process.env.LOG_LEVEL`, as such it is important to configure this variable. As of **version 1.0.2** the default level is set to **4**, so that if you fail to provide this environment variable, the logger will still function and will show all log levels.
+**your-logger-lite** depends on an environment variable named `LOG_LEVEL`. The concept of log-level will be discussed in further detail a little later. In brief, log-level allows some basic, global, environment-bound control over whether or not certain actions are logged. **your-logger-lite**'s `loggerMiddleware` accesses the `LOG_LEVEL` by calling `process.env.LOG_LEVEL`, as such it is important to configure this variable. As of **version 1.1.0** the default level is set to **4**, so that if you fail to provide this environment variable, the logger will still function and will show all log levels.
 
 ### Examples
 
