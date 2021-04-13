@@ -19,7 +19,7 @@ export class Logger {
 
     start(self: string, status?: number): void {
         this.info(self, status)
-        this.time(`${self} = ${this.trace}`)
+        this.time(`${self} - ${this.trace}`)
     }
 
     end(self: string, status?: number): void {

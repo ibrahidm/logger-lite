@@ -14,6 +14,7 @@
 	- [Examples](#examples)
 	- [ES6](#es6)
 	- [CommonJS](#commonjs)
+- [General Use](#general-use)
 
 ## Installation
 
@@ -109,8 +110,50 @@ app.listen(process.env.PORT || 3000, () => {
 
 With the middleware properly initialized, the **console** should show the following: 
 ```
-$ App running on port 3000
-$ IP: ::1, HOST: localhost, METHOD: GET
+App running on port 3000
+IP: ::1, HOST: localhost, METHOD: GET
 ```
 
 While logging this kind of information when in development on a local server is somewhat contrived, this kind of information can be helpful when the application / API is accessible to multiple clients when in production. 
+
+## General Use
+
+**Your-Logger-Lite** was designed with the handler-controller paradigm in mind, but it can be injected virtually anywhere. Here is an example of how you might use it to add logging to an arbitrary handler: 
+
+```
+// foo.route.js
+import { Router } from 'express'
+import { handleCreateFoo } from '../handlers/foo.handler'
+
+const fooRouter = Router()
+
+fooRouter.post('/', handleCreateFoo)
+
+---
+// foo.handler.js
+
+export const handleCreateFoo = async (req, res) => {
+	const { context } = req;
+	const { logger } = context;
+	const self = handleCreateFoo.name;
+	logger.start(self);
+	let newFoo;
+
+	try {
+		newFoo = await createFoo({ req.body, context })
+	} catch (e) {
+		logger.error(e, 500, self)
+		return res.status(500).send(`Could not create newFoo with error: ${e})
+	}
+
+	logger.end(self)
+	return res.status(200).send(newFoo)
+}
+---
+// foo.contollers.js
+
+	// createFoo controller implementation
+
+```
+
+All that logger.start() does is call logger.info() and logger.time() (while logger.end() calls logger.info() and logger.timeEnd()) which can be called independently, depending on your use-case, giving you further glanularity of control. 
