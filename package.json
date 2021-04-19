@@ -1,12 +1,13 @@
 {
   "name": "your-logger-lite",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "A simple logging package with built-in traceability for managing requests, handlers, and controllers in ExpressJS applications",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "files": [
     "lib/"
   ],
+  "keywords": ["logger", "logging", "tracer", "traceability", "log", "console"],
   "author": "Dr. Daniel M. Ibrahim, PharmD",
   "license": "MIT",
   "scripts": {
